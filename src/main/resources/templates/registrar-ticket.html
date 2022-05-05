@@ -1,0 +1,83 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>CRUD Ticket</title>
+    <link rel="shortcut icon" th:href="@{/img/4406665.png}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+              <img th:src="@{img/4406665.png}" alt="" width="50" height="40" class="d-inline-block align-text-top" >
+            Registrar ticket
+          </a>
+          <a th:href="@{/}">
+            <i class="Large material-icons" style="font-size: 50px; color: white;">arrow_back</i>
+        </a>
+        </div>
+        
+      </nav>
+      <section class="d-flex justify-content-center align-items-center">
+        <div class="card shadow col-xs-12 col-sm-6 col-md-6 col-lg-4   p-4"> 
+        <div class="mb-4 d-flex justify-content-start align-items-center">
+            </div>
+            <div class="mb-1">
+                <form id="contacto" action="#" th:action="@{/ticke}" th:object="${ticket}" method="post" >
+
+                    <div class="mb-4">
+                        <label for="tipo_solicitud"><i class="bi bi-envelope-fill"></i> Tipo de solicitud</label>
+                        <input type="text" th:field="*{tipo_solicitud}" name="tipo_solicitud"  class="form-control"  id="tipo_solicitud"  required>
+                        <div class="correo text-danger"></div>
+                        
+                    </div> 
+                    <div class="mb-4 d-flex justify-content-between"> 
+                        <div>
+                            <label for="fecha_de_apertura"> <i class="bi bi-person-fill"></i> Fecha_de_apertura</label>
+                            <input type="date" th:field="*{fecha_de_apertura}" class="form-control" name="fecha_de_apertura" id="fecha_de_apertura"  required>
+                            <div class="fecha_de_apertura text-danger "></div>
+                        </div>
+                        <div >
+                            <label for="fecha_de_cierre"> <i class="bi bi-person-bounding-box"></i> Fecha_de_cierre</label>
+                            <input type="date" th:field="*{fecha_de_cierre}" class="form-control" name="fecha_de_cierre" id="fecha_de_cierre"  required>
+                            <div class="fecha_de_cierre text-danger"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="nombre_de_solicitud"><i class="bi bi-envelope-fill"></i> Nombre de solicitud</label>
+                        <input type="text" th:field="*{nombre_de_solicitud}" class="form-control" name="nombre_de_solicitud" id="nombre_de_solicitud"  required>
+                        <div class="nombre_de_solicitud text-danger"></div>
+                        
+                    </div> 
+
+                    
+                    <div class="mb-4">
+                        <label for="detalle"> <i class="bi bi-chat-right-dots-fill" required></i> Detalle</label>
+                        <textarea name="detalle" th:field="*{detalle}" id="detalle" class="form-control" ></textarea>
+                        <div class="detalle text-danger"></div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="estado_solicitud"> <i class="bi bi-chat-right-dots-fill" ></i> Estado solicitud</label>
+                        <input type="text" th:field="*{estado_solicitud}" class="form-control" name="estado_solicitud" id="estado_solicitud" readonly >
+                        <div class="estado_solicitud text-danger"></div>
+                    </div> 
+
+                    <div class="mb-2">
+                        <button id ="botton" class="col-12 btn btn-primary d-flex justify-content-between ">
+                            <span >Enviar </span><i id="icono" class="bi bi-cursor-fill "></i>
+                        </button>
+                    </div> 
+                              
+                </form>
+            </div><
+        </div>
+    </section>
+
+
+     
+</body>
+</html>

@@ -1,0 +1,68 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>CRUD Ticket</title>
+    <link rel="shortcut icon" th:href="@{/img/4406665.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img th:src="@{img/4406665.png}" alt="" width="50" height="40" class="d-inline-block align-text-top" >
+            Ticket
+          </a>
+          <a th:href="@{/new}">
+            <i class="Large material-icons" style="font-size: 50px; color: white;">add_circle_outline</i>
+        </a>
+        </div>
+        
+      </nav>
+
+      <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-4" th:each="tick: ${ticket}">
+                <div class="card card-margin">
+                    <div class="card-header no-border">
+                        <h5 class="card-title"  th:text="${tick.Id}"></h5>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="widget-49">
+                            <div class="widget-49-title-wrapper">
+                                <div class="widget-49-date-primary">
+
+                                </div>
+                                <div class="widget-49-meeting-info">
+                                    <span class="widget-49-pro-title"><b>Tipo de solicitud</b>  <span th:text="${tick.tipo_solicitud}"></span></span>
+                                </div>
+                            </div>
+                            <ol class="widget-49-meeting-points">
+                                <li class="widget-49-meeting-item"><span> <b>Fecha de apertura</b>   <span th:text="${tick.fecha_de_apertura}"></span></span></li>
+                                <li class="widget-49-meeting-item"><span> <b>Fecha de cierre</b>   <span th:text="${tick.fecha_de_cierre}"></span></span></li>
+                                <li class="widget-49-meeting-item"><span> <b>Nombre de solicitud</b>  <span th:text="${tick.nombre_de_solicitud}"></span></span></li>
+                                <li class="widget-49-meeting-item"><span><b>Detalle</b> <span th:text="${tick.detalle}"></span></span></li>
+                                <li class="widget-49-meeting-item"><span><b>Estado de solicitud</b>  <span th:text="${tick.estado_solicitud}"></span></span></li>
+
+                            </ol>
+                            <div class="widget-49-meeting-action">
+                                <a th:href="@{/ticketupdate/{id}(id=${tick.Id})}" class="btn btn-sm btn-flash-border-primary">Actualizar</a>
+                                <a th:href="@{/ticket/{id}(id=${tick.Id})}" class="btn btn-sm btn-flash-border-primary">Borrar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+     
+</body>
+</html>
