@@ -14,12 +14,7 @@ public class UcentralApplication {
 
 	public static void main(String[] args) {
 
-	ApplicationContext context= SpringApplication.run(UcentralApplication.class, args);
-	Ticketrepository repos = context.getBean(Ticketrepository.class);
-	ticket t1=new ticket(11L,"hla", "03/03/2000","04/04/2021","fh","SHGO","dJHGis");
-	repos.save(t1);
-	ticket t2=new ticket(null,"hla", "03/03/2000","04/04/2021","fh","SHGO","dJHGis");
-	repos.save(t2);
+	SpringApplication.run(UcentralApplication.class, args);
 
 	}
 

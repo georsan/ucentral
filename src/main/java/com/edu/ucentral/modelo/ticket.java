@@ -7,11 +7,11 @@ import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-@Table(name = "ticket")
+
 public class ticket {
-    @javax.persistence.Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String tipo_solicitud;
     private String fecha_de_apertura;
     private String fecha_de_cierre;
@@ -22,7 +22,7 @@ public class ticket {
     public ticket() {}
 
     public ticket(Long id, String tipo_solicitud, String fecha_de_apertura, String fecha_de_cierre, String nombre_de_solicitud, String detalle, String estado_solicitud) {
-        Id = id;
+        id = id;
         this.tipo_solicitud = tipo_solicitud;
         this.fecha_de_apertura = fecha_de_apertura;
         this.fecha_de_cierre = fecha_de_cierre;
@@ -32,11 +32,11 @@ public class ticket {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        id = id;
     }
 
     public String getTipo_solicitud() {
